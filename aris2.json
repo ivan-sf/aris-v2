@@ -1,0 +1,46 @@
+{
+    "Company":{
+        "name": "string",
+        "description": "number",
+        "ManyToMany": [
+            {
+                "entity":"Audit",
+                "relation":"method"
+            }
+        ]
+    },
+    "User":{
+        "name": "string",
+        "lastName": "string",
+        "description": "number",
+        "OneToOne": ["Audit","Locations"]
+    },
+    "Audit":{
+        "method": "string",
+        "status": "number",
+        "type": "string",
+        "response": "string",
+        "ManyToOne": [
+            {
+                "entity":"User",
+                "relation":"name"
+            },
+            {
+                "entity":"Company",
+                "relation":"name"
+            }
+        ]
+    },
+    "Locations":{
+        "method": "string",
+        "status": "number",
+        "type": "string",
+        "response": "string",
+        "OneToMany": [
+            {
+                "entity":"User",
+                "relation":"name"
+            }
+        ]
+    }
+}
